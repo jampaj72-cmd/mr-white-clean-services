@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-teal: var(--teal);
+  --color-cyan: var(--cyan);
+  --color-green: var(--green);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  --background: #F3F6F8;
+  --foreground: #102A43;
+  --card: #FFFFFF;
+  --card-foreground: #102A43;
+  --primary: #0F8B8D;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8F4F4;
+  --secondary-foreground: #0F8B8D;
+  --muted: #EDF2F7;
+  --muted-foreground: #64748B;
+  --accent: #19B5B7;
+  --accent-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --ring: #0F8B8D;
+  --sidebar: #102A43;
+  --sidebar-foreground: #FFFFFF;
+  --teal: #0F8B8D;
+  --cyan: #36C5D3;
+  --green: #39B86A;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --radius: 10px;
+}
+
+.dark {
+  --background: #071624;
+  --foreground: #FFFFFF;
+  --card: #0B1F33;
+  --card-foreground: #FFFFFF;
+  --primary: #0F8B8D;
+  --primary-foreground: #FFFFFF;
+  --secondary: #102A43;
+  --secondary-foreground: #CBD5E1;
+  --muted: #102A43;
+  --muted-foreground: #94A3B8;
+  --accent: #19B5B7;
+  --accent-foreground: #FFFFFF;
+  --border: #1E3A4C;
+  --ring: #19B5B7;
+  --sidebar: #0B1F33;
+  --sidebar-foreground: #FFFFFF;
+  --teal: #0F8B8D;
+  --cyan: #36C5D3;
+  --green: #39B86A;
+  --warning: #F59E0B;
+  --error: #EF4444;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(15, 139, 141, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(15, 139, 141, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(15, 139, 141, 0); }
+}
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.4s ease both; }
+.animate-slideIn { animation: slideIn 0.4s ease both; }
+.animate-slideInRight { animation: slideInRight 0.4s ease both; }
+.animate-scaleIn { animation: scaleIn 0.3s ease both; }
+.animate-countUp { animation: countUp 0.5s ease both; }
+.animate-toastIn { animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-toastOut { animation: toastOut 0.25s ease both; }
+.animate-spin { animation: spin 0.8s linear infinite; }
+.animate-badge { animation: badgePulse 2s ease-in-out infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--muted) 25%, var(--border) 50%, var(--muted) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Sidebar active indicator */
+.nav-active {
+  background: linear-gradient(135deg, rgba(15,139,141,0.2), rgba(25,181,183,0.1));
+  border-left: 3px solid var(--teal);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+}
