@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ThemeProvider } from './store/ThemeContext';
-import { AuthProvider } from './store/AuthContext';
-import { AppProvider } from './store/AppContext';
+import { ThemeProvider } from "./ThemeContext";
+import { AuthProvider } from "./AuthContext";
+import { AppProvider } from "./AppContext";
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
